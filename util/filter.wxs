@@ -1,0 +1,20 @@
+var format = function (text) {
+    // wxs
+    // 避免初始化时没有数据报错
+    if (!text) {
+        return
+    }
+    var reg = getRegExp('\\\\n', 'g')
+    return text.replace(reg, '\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;')
+}
+
+// 取评论前若干条
+var limit = function (array, length) {
+    return array.slice(0, length)
+}
+
+// 一个模块 跟 es6 模块不一样
+module.exports = {
+    format: format,
+    limit: limit
+}
